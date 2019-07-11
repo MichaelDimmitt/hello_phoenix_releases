@@ -1,5 +1,20 @@
 # HelloPhoenixReleases
 
+setup for releases:
+https://hexdocs.pm/phoenix/releases.html#content
+
+```bash
+{
+  export SECRET_KEY_BASE=$(mix phx.gen.secret);
+  export DATABASE_URL=ecto://<yourusername>:<yourpassword>@localhost/hello_dev;
+  # export DATABASE_URL=ecto://USER:PASS@HOST/database
+  mix deps.get --only prod;
+  MIX_ENV=prod mix compile;
+  npm run deploy --prefix ./assets;
+  mix phx.digest;
+}
+```
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
